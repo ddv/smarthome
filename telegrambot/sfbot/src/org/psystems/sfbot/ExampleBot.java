@@ -27,7 +27,12 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class ExampleBot extends TelegramLongPollingBot {
+	
+	
+	private static String token = "";
+	
 	public static void main(String[] args) {
+		token = args[0];
 		ApiContextInitializer.init(); // Инициализируем апи
 		TelegramBotsApi botapi = new TelegramBotsApi();
 		try {
@@ -159,7 +164,7 @@ public class ExampleBot extends TelegramLongPollingBot {
 
 	@Override
 	public String getBotToken() {
-		return "";
+		return token;
 		// Токен бота
 	}
 	
