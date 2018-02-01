@@ -49,6 +49,7 @@ public class ExampleBot extends TelegramLongPollingBot {
 	}
 
 	
+	
 	@Override
 	public void onUpdateReceived(Update e) {
 	
@@ -115,7 +116,7 @@ public class ExampleBot extends TelegramLongPollingBot {
 	        // Set each button, you can also use KeyboardButton objects if you need something else than text
 	        row.add("/foto");
 	        row.add("/upload");
-	        row.add("Row 1 Button 3");
+	        row.add("/cam/actions");
 	        // Add the first row to the keyboard
 	        keyboard.add(row);
 	        // Create another keyboard row
@@ -154,8 +155,13 @@ public class ExampleBot extends TelegramLongPollingBot {
 	            ex.printStackTrace();
 	        }
 		}
-		if (msg.getText().equals("/upload")) {
-			
+		if (msg.getText().equals("/cam/actions")) {
+			try {
+				Runtime.getRuntime().exec("/home/smartfazenda/cambot.sh");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		        
 		    	
 		}
